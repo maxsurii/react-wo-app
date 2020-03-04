@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObject } from "../../common/utility";
+import { updateObject } from "../../util/utility";
 
 const initialState = {
   isAuthenticated: false,
