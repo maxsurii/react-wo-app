@@ -2,8 +2,10 @@ import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../util/utility";
 
 const initialState = {
+  host: "http://localhost:9080/maximo",
   isAuthenticated: false,
-  loading: false
+  loading: false,
+  authHeader: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,9 +13,13 @@ const reducer = (state = initialState, action) => {
 
   switch (type) {
     case actionTypes.LOGIN:
-      return updateObject(state, { loading: false });
-    case actionTypes.SET_LOADING:
-      return updateObject(state, { loading: payload });
+      return updateObject(state, { loading: false, isAuthenticated: true });
+    case actionTypes.STORE_USER_DETAILS:
+      return updateObject(state, {
+        loading: true,
+        authHeader: payload.authHeader,
+        host: payload.host
+      });
     default:
       return state;
   }
