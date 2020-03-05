@@ -1,4 +1,4 @@
-export { login } from "./authActions";
+export { login, logoutUser } from "./authActions";
 
 export {
   loadWorkOrders,

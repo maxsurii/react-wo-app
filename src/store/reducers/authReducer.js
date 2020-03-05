@@ -20,6 +20,12 @@ const reducer = (state = initialState, action) => {
         authHeader: payload.authHeader,
         host: payload.host
       });
+    case actionTypes.LOGOUT:
+      return updateObject(state, {
+        loading: false,
+        isAuthenticated: false,
+        authHeader: {}
+      });
     default:
       return state;
   }

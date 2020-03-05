@@ -1,4 +1,5 @@
 export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 export const STORE_USER_DETAILS = "STORE_USER_DETAILS";
 export const SET_LOGIN_LOADING = "SET_LOGIN_LOADING";
 

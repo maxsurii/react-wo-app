@@ -37,3 +37,9 @@ const storLoginCredentils = (host, loginHeaders) => {
     }
   };
 };
+
+export const logoutUser = () => {
+  return {
+    type: actionTyoes.LOGOUT
+  };
+};
