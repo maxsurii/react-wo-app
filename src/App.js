@@ -17,7 +17,11 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Switch>
             <PrivateRoute exact path="/worklist" component={WorkList} />
-            <PrivateRoute exact path="/wodetail" component={WorkDetails} />
+            <PrivateRoute
+              exact
+              path="/wodetail/:woId"
+              component={WorkDetails}
+            />
           </Switch>
         </div>
       </BrowserRouter>

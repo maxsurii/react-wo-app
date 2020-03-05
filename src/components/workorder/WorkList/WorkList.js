@@ -49,9 +49,9 @@ class WorkList extends Component {
 
   render() {
     const { worklist, loading } = this.props.wostore;
-
-    if (this.props.errors.error) {
-      return <div>Error: {this.props.errors.error}</div>;
+    const { errors } = this.props; // const errors = this.state.errors;
+    if (errors.message) {
+      return <div>Error: {errors.message}</div>;
     }
 
     let worklistContent;
