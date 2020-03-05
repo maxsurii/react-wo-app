@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 import Spinner from "../../common/Spinner/Spinner";
 import TextFieldGroup from "../../common/Form/TextFieldGroup";
+import TextAreaFieldGroup from "../../common/Form/TextAreaFieldGroup";
+import SelectListGroup from "../../common/Form/SelectListGroup";
 
 class WorkDetails extends Component {
   state = {
@@ -52,6 +54,13 @@ class WorkDetails extends Component {
   };
 
   render() {
+    //Select options for status
+    const options = [
+      { label: "Select Status", value: "0" },
+      { label: "Approved", value: "APPR" },
+      { label: "DP Commence Work", value: "DPCOMMENCE" }
+    ];
+
     const { errors } = this.props; // const errors = this.state.errors;
     const { loading } = this.props.wostore;
     let form;
@@ -69,17 +78,20 @@ class WorkDetails extends Component {
             value={this.state.wonum}
             onChange={this.onInputChangeHandler}
           />
-          <TextFieldGroup
+          <TextAreaFieldGroup
             placeholder="Description"
             name="description"
             value={this.state.description}
             onChange={this.onInputChangeHandler}
           />
-          <TextFieldGroup
+          <SelectListGroup
             placeholder="Status"
             name="status"
             value={this.state.status}
             onChange={this.onInputChangeHandler}
+            options={options}
+            error={errors.status}
+            info="Select a valid to be status"
           />
           <input type="submit" className="btn btn-primary" value="Submit" />
         </form>
